@@ -7,10 +7,11 @@ provider:
   region: eu-west-1
   environment:
     GITHUB_WEBHOOK_SECRET: ${ssm:webhookToken}
+    GITHUB_TOKEN: ${ssm:githubToken}
 
 functions:
-  githubListener:
-    handler: handler.githubListener
+  githubCheck:
+    handler: handler.githubCheck
     events:
       - http:
           path: webhook
