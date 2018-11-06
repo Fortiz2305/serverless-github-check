@@ -9,7 +9,6 @@ module.exports.githubListener = (event, context, callback) => {
   const token = process.env.GITHUB_WEBHOOK_SECRET;
   const headers = event.headers;
   const sig = headers['X-Hub-Signature'];
-  const githubEvent = headers['X-GitHub-Event'];
   const id = headers['X-GitHub-Delivery'];
   const calculatedSig = signRequestBody(token, event.body);
 
@@ -26,15 +25,6 @@ module.exports.githubListener = (event, context, callback) => {
     errMsg = 'No X-Hub-Signature found on request';
     return callback(null, {
       statusCode: 401,
-      headers: { 'Content-Type': 'text/plain' },
-      body: errMsg,
-    });
-  }
-
-  if (!githubEvent) {
-    errMsg = 'No X-Github-Event found on request';
-    return callback(null, {
-      statusCode: 422,
       headers: { 'Content-Type': 'text/plain' },
       body: errMsg,
     });
@@ -59,8 +49,6 @@ module.exports.githubListener = (event, context, callback) => {
   }
 
   /* eslint-disable */
-  console.log('---------------------------------');
-  console.log(`Github-Event: "${githubEvent}" with action: "${event.body.action}"`);
   console.log('---------------------------------');
   console.log('Payload', event.body);
   /* eslint-enable */
