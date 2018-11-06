@@ -7,5 +7,8 @@
     "logs": "serverless logs -f githubListener -t"
   },
   "author": "Fran Ortiz <fortizabril@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "octonode": "^0.9.5"
+  }
 }
