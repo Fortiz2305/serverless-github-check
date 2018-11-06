@@ -1,0 +1,11 @@
+{
+  "name": "serverless-github-check",
+  "version": "0.0.1",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "logs": "serverless logs -f githubListener -t"
+  },
+  "author": "Fran Ortiz <fortizabril@gmail.com>",
+  "license": "MIT"
+}
