@@ -5,4 +5,4 @@ The idea is to validate that all Pull Requests are related to a specific trello 
 
 Check rules:
 
-* To pass the check, the Pull Request body should start with: "Related to: https://trello.com/"
+* To pass the check, the Pull Request body should start with: "Related trello card: https://trello.com/"
