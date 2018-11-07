@@ -1,5 +1,5 @@
 export function isAValidPullRequest(body) {
-  if (!body.pull_request.body.startsWith('Related to: https://trello.com')) return false
+  if (!body.pull_request.body.startsWith('Related trello card: https://trello.com')) return false
   return true
 }
 
