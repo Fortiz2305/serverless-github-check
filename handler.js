@@ -1,11 +1,11 @@
-const github = require('octonode')
+import { client } from 'octonode'
 import { success, failure, githubSuccessPayload, githubFailurePayload } from './libs/response-lib'
 import {
   isAValidPullRequest, eventIsAPullRequest, updatePullRequestStatus, checkWebhookSecret
 } from './libs/github-service'
 
 export async function githubCheck(event, context, callback) {
-  const githubClient = github.client(process.env.GITHUB_TOKEN)
+  const githubClient = client(process.env.GITHUB_TOKEN)
   checkWebhookSecret(process.env.GITHUB_WEBHOOK_SECRET)
 
   let body = JSON.parse(event.body)
